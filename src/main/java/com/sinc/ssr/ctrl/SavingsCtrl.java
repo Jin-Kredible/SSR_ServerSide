@@ -30,12 +30,12 @@ public class SavingsCtrl {
 		System.out.println("numPoint : " + numPoint);
 //		System.out.println(numPoint);
 		
-		SavingsVO savingsVO = new SavingsVO();
-		savingsVO.setUser_id(3);
-		savingsVO.setSa_am(4);
-		savingsService.changingSavings(savingsVO);
+//		SavingsVO savingsVO = new SavingsVO();
+//		savingsVO.setUser_id(3);
+//		savingsVO.setSa_am(4);
+//		savingsService.changingSavings(savingsVO);
 		
-		return savingsVO;
+		return null;
 	}
 	
 }

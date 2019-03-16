@@ -25,15 +25,15 @@ public class StepCtrl {
 
 	@RequestMapping("/step.do") 
 	@ResponseBody
-	public ArrayList androidTestWithRequestAndResponse(String steps, String userid) { 
+	public ArrayList androidTestWithRequestAndResponse(String steps, String userno) { 
 		System.out.println("Step Ctrl execute");
-		System.out.println("steps" + steps + "userid" + userid);
+		System.out.println("steps" + steps + "userid" + userno);
 		List<Object> weekStep = new ArrayList<Object>();
 		
 		StepVO stepVO = new StepVO();
 		
 		stepVO.setWk_am(Integer.parseInt(steps));
-		stepVO.setUser_id(4);
+		stepVO.setUser_id(1);
 		
 		weekStep = stepService.getSteps(stepVO);
 		System.out.println("inside contoller" + weekStep.toString());
