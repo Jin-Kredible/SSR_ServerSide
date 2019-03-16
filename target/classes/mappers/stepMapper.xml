@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	retrvStep : 전주 걸음 데이터 조회
+	insertStep : 걸음데이터 삽입
+	updateStep : 걸음데이터 수정
+	firstStep : 오늘 걸음데이터가 있는지 일자 조회
+	todayStep : 오늘 걸은 걸음수
+	changingStep : 전환할 걸음수 조회
+-->
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sinc.ssr.mybatis.step">
+    <select id="retrvStep" parameterType="stepVO" resultType="stepVO" flushCache="true" useCache="true">
+        SELECT USER_ID,WK_DT,WK_AM,WK_SA 
+        FROM WALKS 
+        WHERE USER_ID = #{user_id} 
+        AND (WK_DT BETWEEN SYSDATE-14 AND TRUNC(SYSDATE) - 1/(24*60*60)) 
+        ORDER BY WK_DT ASC
+    </select>
+    
+    
+    <insert id="insertStep" parameterType="stepVO">
+        INSERT INTO WALKS 
+        VALUES (#{user_id}, SYSDATE, #{wk_am}, DEFAULT)
+    </insert>
+    
+    <update id="updateStep" parameterType="stepVO">
+        UPDATE WALKS
+        SET WK_AM = #{wk_am} 
+        WHERE USER_ID = #{user_id} 
+        AND TRUNC(WK_dT) = TRUNC(SYSDATE)
+    </update>
+    
+
+    <select id="firstStep" parameterType="stepVO" resultType="string" flushCache="true" useCache="true">
+        SELECT TRUNC(WK_DT) 
+        FROM WALKS 
+        WHERE USER_ID = #{user_id} 
+        AND TRUNC(SYSDATE) IN TRUNC(WK_DT)
+    </select>
+    
+	<select id="todayStep" parameterType="stepVO" resultType="int">
+    	SELECT 	WK_AM
+		FROM 	WALKS
+		WHERE 	USER_ID = #{user_id}
+		AND 	TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
+    </select>   
+    
+    <select id="changingStep" parameterType="stepVO" resultType="int">
+    	SELECT 	(WK_AM-WK_SA)
+    	FROM 	WALKS
+		WHERE 	USER_ID = #{user_id}
+		AND 	TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
+    </select>
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.sinc.mybatis.board">
+	
+	<select id="selectBoard" resultType="board">
+		SELECT SEQ,TITLE,CONTENT,WRITER,TO_CHAR(REGDATE, 'RRRR.MM.DD') AS REGDATE,CNT
+		FROM FRM_BOARD_TBL
+	</select>
+	
+	<select id="searchRow" parameterType="map" resultType="board">
+		SELECT SEQ,TITLE,CONTENT,WRITER,TO_CHAR(REGDATE, 'RRRR.MM.DD') AS REGDATE,CNT
+		FROM FRM_BOARD_TBL
+		<where>
+			<if test="searchType == 'title'">
+				TITLE LIKE '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchType == 'writer'">
+				WRITER LIKE '%' || #{searchKeyword} || '%'
+			</if>
+		</where>
+	</select>
+	
+</mapper>  
+
+
+
+
+
+
+
+
+
+
+

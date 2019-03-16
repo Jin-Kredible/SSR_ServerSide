@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	insertSavings : 포인트 행 추가(최초 추가)
+	updateSavings : 포인트 전환
+	selectAllSavings : 총포인트 조회
+	changedSavings : 전환한 포인트액(WALKS - WK_SA 수정)
+-->
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sinc.ssr.mybatis.savings">
+    <insert id="insertSavings" parameterType="savingsVO">
+    	INSERT INTO SAVINGS(SA_ID, USER_ID, SA_DT, SA_AM)
+		VALUES (SEQID_SA.NEXTVAL, #{user_id}, SYSDATE, DEFAULT); 
+    </insert>
+    
+    <update id="updateSavings" parameterType="savingsVO">
+    	UPDATE 	SAVINGS
+		SET 	SA_AM = #{sa_am}
+		WHERE 	USER_ID = #{user_id}
+	<!-- 	AND 	TO_CHAR(SA_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD') -->
+    </update>
+    
+    <select id="selectAllSavings" parameterType="savingsVO" resultType="int">
+    	SELECT 	SA_AM
+    	FROM 	SAVINGS
+    	WHERE 	USER_ID = #{user_id}
+    </select>
+    
+    
+    
+    <update id="changedSavings" parameterType="stepVO">
+    	UPDATE 	WALKS
+    	SET 	WK_SA =	(SELECT SA_AM*100 
+						FROM SAVINGS
+						WHERE USER_ID = #{user_id}
+						AND TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD'))
+		WHERE 	USER_ID = #{user_id}
+		AND 	TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
+    </update>
+</mapper>
