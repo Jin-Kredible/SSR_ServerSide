@@ -13,7 +13,7 @@
 <mapper namespace="com.sinc.ssr.mybatis.savings">
     <insert id="insertSavings" parameterType="savingsVO">
     	INSERT INTO SAVINGS(SA_ID, USER_ID, SA_DT, SA_AM)
-		VALUES (SEQID_SA.NEXTVAL, #{user_id}, SYSDATE, DEFAULT);
+		VALUES (SEQID_SA.NEXTVAL, #{user_id}, SYSDATE, DEFAULT) 
     </insert>
     
     <update id="updateSavings" parameterType="savingsVO">
@@ -26,13 +26,6 @@
 		WHERE 	USER_ID = #{user_id}
 		AND 	TO_CHAR(SA_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
     </update>
-  
-     <select id="firstSavings" parameterType="savingsVO" resultType="string">
-        SELECT 	TRUNC(SA_DT) 
-        FROM 	SAVINGS 
-        WHERE 	USER_ID = #{user_id} 
-        AND 	TRUNC(SYSDATE) IN TRUNC(SA_DT)
-    </select>
        
     <select id="selectAllSavings" parameterType="savingsVO" resultType="int">
     	SELECT 	SA_AM

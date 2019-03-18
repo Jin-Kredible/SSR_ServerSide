@@ -20,7 +20,9 @@ public class StepDao {
 		List<Object> week_steps = session.selectList("com.sinc.ssr.mybatis.step.retrvStep",stepVO);
 		
 		String walk_date = session.selectOne("com.sinc.ssr.mybatis.step.firstStep", stepVO);
-		if(walk_date == null) {
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>  walk date      "+walk_date);
+		if(walk_date == null || walk_date == "") {
+			/* 일자별 걸음 최초 행 추가*/
 			session.insert("com.sinc.ssr.mybatis.step.insertStep", stepVO);
 			/* 일자별 포인트 최초 행 추가*/
 			SavingsVO savingsVO = new SavingsVO();

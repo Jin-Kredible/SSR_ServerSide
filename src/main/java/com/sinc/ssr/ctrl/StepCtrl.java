@@ -33,7 +33,7 @@ public class StepCtrl {
 		StepVO stepVO = new StepVO();
 		
 		stepVO.setWk_am(Integer.parseInt(steps));
-		stepVO.setUser_id(1);
+		stepVO.setUser_id(4);
 		
 		weekStep = stepService.getSteps(stepVO);
 		System.out.println("inside contoller" + weekStep.toString());
@@ -70,7 +70,7 @@ public class StepCtrl {
 		System.out.println("Step Ctrl walkToGoods");
 		
 		StepVO stepVO = new StepVO();
-		stepVO.setUser_id(3);
+		stepVO.setUser_id(4);
 		
 		int goods = stepService.changingStep(stepVO);
 		System.out.println(goods);

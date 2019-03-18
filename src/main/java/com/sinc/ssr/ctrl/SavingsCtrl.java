@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sinc.ssr.service.SavingsService;
 import com.sinc.ssr.vo.SavingsVO;
-import com.sinc.ssr.vo.StepVO;
 
 @Controller
 public class SavingsCtrl {
@@ -29,7 +28,7 @@ public class SavingsCtrl {
 		System.out.println("numPoint : "+numPoint+"userid : "+userid);
 		
 		SavingsVO savingsVO = new SavingsVO();
-		savingsVO.setUser_id(3);
+		savingsVO.setUser_id(4);
 		savingsVO.setSa_am(Integer.parseInt(numPoint));
 		savingsService.updateSavings(savingsVO);
 	}
