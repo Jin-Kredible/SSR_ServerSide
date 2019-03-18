@@ -25,7 +25,6 @@ public class ProductDao {
 		//Testing 용으로 셋팅
 		randomTrend = 2;
 		
-		
 		switch(randomTrend) {
 		case 0: productList = (ArrayList<Object>) session.selectList("com.sinc.ssr.mybatis.product.getTrendA",productVo);
 				break;
@@ -37,7 +36,17 @@ public class ProductDao {
 		        break;
 		}
 		
-	
+		ProductVO productVo2 = new ProductVO();
+		for(int i =1; i < 93; i++) {
+			
+			String path = "/recomproducts/";
+			path = path + Integer.toString(i) +".jpg";
+			System.out.println("path" + path);
+
+			productVo2.setItem_img_path(path);
+			productVo2.setAge(i);
+		session.update("com.sinc.ssr.mybatis.product.updateRows",productVo2);
+		}
 		return productList;
 	}
 }

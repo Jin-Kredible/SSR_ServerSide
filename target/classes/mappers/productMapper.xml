@@ -92,4 +92,9 @@
 			AND gender = #{gender} AND TIME = #{time} AND age =#{age}))
     </select>
     
+    <update id="updateRows" parameterType="productVO">
+    	update item_detail set item_img_path= #{item_img_path} where item_no=#{age}
+    
+    </update>
+    
 </mapper>
