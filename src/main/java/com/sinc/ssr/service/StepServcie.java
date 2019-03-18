@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sinc.ssr.dao.StepDao;
+import com.sinc.ssr.vo.MallsVO;
 import com.sinc.ssr.vo.StepVO;
 
 @Service("stepService")
@@ -38,5 +39,10 @@ public class StepServcie {
 		int changingStep = (Integer) stepDao.changingStep(obj);
 		int goods = changingStep/1000;
 		return goods;
+	}
+	
+	public void visit(Object obj) {
+		System.out.println("Step Service visit");
+		stepDao.visit(obj);
 	}
 }

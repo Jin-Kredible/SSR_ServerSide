@@ -3,8 +3,9 @@
 	insertSavings : 포인트 행 추가(최초 추가)
 	updateSavings : 포인트 전환
 	firstSavings : 오늘 포인트 데이터가 있는지 일자 조회
-	selectAllSavings : 총포인트 조회
+	selectTotalSavings : 총포인트 조회
 	changedSavings : 포인트로 전환한 걸음수 (WALKS - WK_SA 수정)
+	checkVisit : 매장방문시, 걸은 걸음 조회(VISIT - VI_WK 조회)
 -->
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -13,7 +14,7 @@
 <mapper namespace="com.sinc.ssr.mybatis.savings">
     <insert id="insertSavings" parameterType="savingsVO">
     	INSERT INTO SAVINGS(SA_ID, USER_ID, SA_DT, SA_AM)
-		VALUES (SEQID_SA.NEXTVAL, #{user_id}, SYSDATE, DEFAULT);
+		VALUES (SEQID_SA.NEXTVAL, #{user_id}, SYSDATE, DEFAULT) 
     </insert>
     
     <update id="updateSavings" parameterType="savingsVO">
@@ -26,16 +27,9 @@
 		WHERE 	USER_ID = #{user_id}
 		AND 	TO_CHAR(SA_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
     </update>
-  
-     <select id="firstSavings" parameterType="savingsVO" resultType="string">
-        SELECT 	TRUNC(SA_DT) 
-        FROM 	SAVINGS 
-        WHERE 	USER_ID = #{user_id} 
-        AND 	TRUNC(SYSDATE) IN TRUNC(SA_DT)
-    </select>
        
-    <select id="selectAllSavings" parameterType="savingsVO" resultType="int">
-    	SELECT 	SA_AM
+    <select id="selectTotalSavings" parameterType="savingsVO" resultType="int">
+    	SELECT 	SUM(SA_AM)
     	FROM 	SAVINGS
     	WHERE 	USER_ID = #{user_id}
     </select>
@@ -51,5 +45,10 @@
 		AND 	TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
     </update>       
     
-
+	<select id="checkVisit" parameterType="mallsVO" resultType="int">
+		SELECT 	VI_WK 
+		FROM 	VISITS 
+		WHERE 	USER_ID = #{user_id} 
+		AND 	TO_CHAR(VI_START, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
+	</select>    
 </mapper>

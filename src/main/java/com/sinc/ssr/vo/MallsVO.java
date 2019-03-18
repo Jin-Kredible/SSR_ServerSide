@@ -5,7 +5,7 @@ package com.sinc.ssr.vo;
 public class MallsVO {
 	int 	mall_id, mall_la, mall_long;
 	String 	mall_nm;
-	int 	vi_id, vi_wk;
+	int 	user_id, vi_id, vi_wk;
 	String 	vi_start, vi_end;
 	
 	public MallsVO() {
@@ -19,6 +19,7 @@ public class MallsVO {
 		this.mall_la = mall_la;
 		this.mall_long = mall_long;
 		this.mall_nm = mall_nm;
+		this.user_id = user_id;
 		this.vi_id = vi_id;
 		this.vi_wk = vi_wk;
 		this.vi_start = vi_start;
@@ -57,6 +58,14 @@ public class MallsVO {
 		this.mall_nm = mall_nm;
 	}
 
+	public int getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
 	public int getVi_id() {
 		return vi_id;
 	}
@@ -92,8 +101,10 @@ public class MallsVO {
 	@Override
 	public String toString() {
 		return "MallsVO [mall_id=" + mall_id + ", mall_la=" + mall_la + ", mall_long=" + mall_long + ", mall_nm="
-				+ mall_nm + ", vi_id=" + vi_id + ", vi_wk=" + vi_wk + ", vi_start=" + vi_start + ", vi_end=" + vi_end
-				+ "]";
+				+ mall_nm + ", user_id=" + user_id + ", vi_id=" + vi_id + ", vi_wk=" + vi_wk + ", vi_start=" + vi_start
+				+ ", vi_end=" + vi_end + "]";
 	}
+
+	
 
 }

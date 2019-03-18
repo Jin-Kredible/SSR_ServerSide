@@ -6,6 +6,7 @@
 	firstStep : 오늘 걸음데이터가 있는지 일자 조회
 	todayStep : 오늘 걸은 걸음수
 	changingStep : 전환할 걸음수 조회(상품 수로 변환할 sql)
+	visit : 매방방문 데이터 삽입
 -->
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -55,5 +56,12 @@
 		AND 	TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
     </select>
     
+    <insert id="visit" parameterType="mallsVO">
+		INSERT  INTO VISITS(VI_ID, USER_ID, MALL_ID, VI_WK, VI_START, VI_END)
+		VALUES	(SEQID_VI.NEXTVAL, #{user_id}, #{mall_id}, #{vi_wk}, 
+				TO_DATE(#{vi_start}, 'RRRR-MM-DD HH24:MI:SS'), 
+	    		TO_DATE(#{vi_start},'RRRR-MM-DD HH24:MI:SS'))
+	</insert>
+	
  
 </mapper>
