@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.sinc.ssr.vo.ProductVO;
+import com.sinc.ssr.vo.SavingsVO;
+import com.sinc.ssr.vo.StepVO;
 
 @Repository("productDao")
 public class ProductDao {
@@ -36,17 +38,26 @@ public class ProductDao {
 		        break;
 		}
 		
-		ProductVO productVo2 = new ProductVO();
-		for(int i =1; i < 93; i++) {
-			
-			String path = "/recomproducts/";
-			path = path + Integer.toString(i) +".jpg";
-			System.out.println("path" + path);
+	
 
-			productVo2.setItem_img_path(path);
-			productVo2.setAge(i);
-		session.update("com.sinc.ssr.mybatis.product.updateRows",productVo2);
-		}
 		return productList;
+	}
+	
+	public int checkPushNotice() {
+		
+		StepVO stepVO = new StepVO();
+		stepVO.setUser_id(1);
+		
+		String pushYN = session.selectOne("com.sinc.ssr.mybatis.product.checkPushYN", stepVO);
+		
+		if(pushYN == null || pushYN.isEmpty() || pushYN.equals("")) {
+			session.insert("com.sinc.ssr.mybatis.product.insertPushYN", stepVO);
+			return 0;
+		
+		}else if (pushYN == "N" || pushYN=="n" || pushYN.equals("N")){
+			session.update("com.sinc.ssr.mybatis.product.updateStep", stepVO);
+			return 0;
+		}
+		return 1;
 	}
 }

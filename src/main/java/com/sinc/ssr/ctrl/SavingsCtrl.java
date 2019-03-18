@@ -21,7 +21,7 @@ public class SavingsCtrl {
 	 * 카트에 담긴 상품 개수에 따라 포인트로 전환
 	 * 안드로이드에서 numPoint(이미 *10된 값) 받아와서 Service로 넘김
 	 * */
-	@RequestMapping(value="/goodsToSavings.do", method = RequestMethod.GET)
+	@RequestMapping(value="/goodsToSavings.do")
 	@ResponseBody
 	public void goodsToSavings(String numPoint, String userid) {
 		System.out.println("Step Ctrl goodsToSavings");
@@ -29,7 +29,7 @@ public class SavingsCtrl {
 		System.out.println("numPoint : "+numPoint+"userid : "+userid);
 		
 		SavingsVO savingsVO = new SavingsVO();
-		savingsVO.setUser_id(3);
+		savingsVO.setUser_id(2);
 		savingsVO.setSa_am(Integer.parseInt(numPoint));
 		savingsService.updateSavings(savingsVO);
 	}

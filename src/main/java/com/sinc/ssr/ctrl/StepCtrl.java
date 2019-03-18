@@ -70,7 +70,7 @@ public class StepCtrl {
 		System.out.println("Step Ctrl walkToGoods");
 		
 		StepVO stepVO = new StepVO();
-		stepVO.setUser_id(3);
+		stepVO.setUser_id(2);
 		
 		int goods = stepService.changingStep(stepVO);
 		System.out.println(goods);

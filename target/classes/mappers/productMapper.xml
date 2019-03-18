@@ -94,7 +94,18 @@
     
     <update id="updateRows" parameterType="productVO">
     	update item_detail set item_img_path= #{item_img_path} where item_no=#{age}
+    </update>
     
+     <select id="checkPushYN" parameterType="stepVO" resultType="String" flushCache="true" useCache="true">
+		SELECT push_yn FROM WALKS WHERE USER_ID = #{user_id} AND TRUNC(WK_DT) = TRUNC(SYSDATE)
+    </select>
+    <insert id="insertPushYN" parameterType="stepVO">
+        INSERT INTO WALKS 
+        VALUES (#{user_id}, SYSDATE, DEFAULT, DEFAULT, 'Y')
+    </insert>
+    
+    <update id="updatePushYN" parameterType="stepVO">
+    	update WALKS SET PUSH_YN = 'Y' WHERE USER_ID = #{user_id} AND TRUNC(WK_DT) = TRUNC(SYSDATE)
     </update>
     
 </mapper>

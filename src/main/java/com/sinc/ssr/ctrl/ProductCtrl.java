@@ -30,4 +30,14 @@ public class ProductCtrl {
 		
 		return productList;
 	}
+	
+	@RequestMapping("/checkPush.do") 
+	@ResponseBody
+	public int checkPushNotice(String dummy1, String dummy2) { 
+		
+		int check = productService.checkPushNotice();
+		System.out.println(check);
+		
+		return check;
+	}
 }
