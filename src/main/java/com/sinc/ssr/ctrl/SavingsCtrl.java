@@ -22,7 +22,7 @@ public class SavingsCtrl {
 	 * 안드로이드에서 numPoint(이미 *10된 값) 받아와서 Service로 넘김
 	 * */
 	@RequestMapping(value="/goodsToSavings.do", method = RequestMethod.GET)
-	//@ResponseBody
+	@ResponseBody
 //	public Object goodsToSavings(int numPoint) {
 		public Object goodsToSavings(String numPoint, String userno) {
 		System.out.println("Step Ctrl goodsToSavings");
