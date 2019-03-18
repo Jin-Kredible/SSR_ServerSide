@@ -11,8 +11,11 @@ public class SavingsDao {
 	@Resource(name="sqlSession")
 	private SqlSession session;
 	
-	public Object updateSavings(Object obj) {
+	public void updateSavings(Object obj) {
 		System.out.println("Savings Dao updateSavings");
-		return session.update("com.sinc.ssr.mybatis.savings.updateSavings", obj);
+		
+		session.update("com.sinc.ssr.mybatis.savings.updateSavings", obj); //포인트 적립
+		session.update("com.sinc.ssr.mybatis.savings.changedSavings",obj); //전환포인트 - 전환걸음 수정
+		System.out.println("update wk_Sa"); 
 	}
 }

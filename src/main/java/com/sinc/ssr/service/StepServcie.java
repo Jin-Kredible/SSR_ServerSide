@@ -17,9 +17,9 @@ public class StepServcie {
 	@Resource(name="stepDao")
 	private StepDao stepDao;
 	
-	public List<Object> getSteps(StepVO stpVo) {
-		List<Object> week_step = stepDao.getTotalSteps(stpVo);
-		return week_step;
+	public List<Object> getSteps(StepVO stepVO) {
+		List<Object> weekStep = stepDao.getTotalSteps(stepVO);
+		return weekStep;
 	}
 
 	public double todayGoal(Object obj) {

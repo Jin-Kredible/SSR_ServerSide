@@ -5,7 +5,7 @@
 	updateStep : 걸음데이터 수정
 	firstStep : 오늘 걸음데이터가 있는지 일자 조회
 	todayStep : 오늘 걸은 걸음수
-	changingStep : 전환할 걸음수 조회
+	changingStep : 전환할 걸음수 조회(상품 수로 변환할 sql)
 -->
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -54,4 +54,6 @@
 		WHERE 	USER_ID = #{user_id}
 		AND 	TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
     </select>
+    
+ 
 </mapper>

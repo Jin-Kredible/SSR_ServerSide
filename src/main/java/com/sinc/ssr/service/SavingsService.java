@@ -12,10 +12,9 @@ public class SavingsService {
 	@Resource(name="savingsDao")
 	private SavingsDao savingsDao;
 	
-	public int changingSavings(Object obj) {
+	public void updateSavings(Object obj) {
 		System.out.println("Savings Service changingSavings");
-		int Savings = (Integer) savingsDao.updateSavings(obj);
-		return Savings;
+		savingsDao.updateSavings(obj);
 	}
 }
 	
