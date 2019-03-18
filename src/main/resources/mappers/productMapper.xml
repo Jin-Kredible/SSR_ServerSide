@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sinc.ssr.mybatis.product">
+    <select id="getTrendA" parameterType="productVO" resultType="productVO" flushCache="true" useCache="true">
+        SELECT ITEM_NAME, ITEM_PRICE, ITEM_WEIGHT, ITEM_IMG_PATH 
+		FROM ITEM_DETAIL 
+		WHERE ITEM_NO 
+		IN ((SELECT detail.ITEM_NO1
+			FROM TRENDA a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age = #{age}),
+	(SELECT detail.ITEM_NO2
+			FROM TRENDA a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age = #{age}),
+	(SELECT detail.ITEM_NO3
+			FROM TRENDA a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age = #{age}),
+	(SELECT detail.ITEM_NO4
+			FROM TRENDA a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age = #{age}))
+    </select>
+    
+      <select id="getTrendB" parameterType="productVO" resultType="productVO" flushCache="true" useCache="true">
+        SELECT ITEM_NAME, ITEM_PRICE, ITEM_WEIGHT, ITEM_IMG_PATH 
+		FROM ITEM_DETAIL 
+		WHERE ITEM_NO 
+		IN ((SELECT detail.ITEM_NO1
+			FROM TRENDB a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age = #{age}),
+	(SELECT detail.ITEM_NO2
+			FROM TRENDB a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age =#{age}),
+	(SELECT detail.ITEM_NO3
+			FROM TRENDB a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age =#{age}),
+	(SELECT detail.ITEM_NO4
+			FROM TRENDB a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age =#{age}))
+    </select>
+    
+      <select id="getTrendC" parameterType="productVO" resultType="productVO" flushCache="true" useCache="true">
+        SELECT ITEM_NAME, ITEM_PRICE, ITEM_WEIGHT, ITEM_IMG_PATH 
+		FROM ITEM_DETAIL 
+		WHERE ITEM_NO 
+		IN ((SELECT detail.ITEM_NO1
+			FROM TRENDC a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age = #{age}),
+	(SELECT detail.ITEM_NO2
+			FROM TRENDC a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age =#{age}),
+	(SELECT detail.ITEM_NO3
+			FROM TRENDC a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age =#{age}),
+	(SELECT detail.ITEM_NO4
+			FROM TRENDC a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age =#{age}))
+    </select>
+    
+      <select id="getTrendD" parameterType="productVO" resultType="productVO" flushCache="true" useCache="true">
+        SELECT ITEM_NAME, ITEM_PRICE, ITEM_WEIGHT, ITEM_IMG_PATH 
+		FROM ITEM_DETAIL 
+		WHERE ITEM_NO 
+		IN ((SELECT detail.ITEM_NO1
+			FROM TRENDD a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age = #{age}),
+	(SELECT detail.ITEM_NO2
+			FROM TRENDD a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age =#{age}),
+	(SELECT detail.ITEM_NO3
+			FROM TRENDD a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age =#{age}),
+	(SELECT detail.ITEM_NO4
+			FROM TRENDD a, TREND_DETAIL detail 
+			WHERE a.TREND_NM = detail.TREND_NM 
+			AND gender = #{gender} AND TIME = #{time} AND age =#{age}))
+    </select>
+    
+</mapper>

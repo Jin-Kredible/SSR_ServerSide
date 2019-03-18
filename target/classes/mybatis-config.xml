@@ -8,7 +8,7 @@
 		<typeAlias type="com.sinc.ssr.vo.StepVO" alias="stepVO"/>
 		<typeAlias type="com.sinc.ssr.vo.SavingsVO" alias="savingsVO"/>
 		<typeAlias type="com.sinc.ssr.vo.MallsVO" alias="mallsVO"/>
-		
+		<typeAlias type="com.sinc.ssr.vo.ProductVO" alias="productVO"/>
 	</typeAliases>
 </configuration>
 
