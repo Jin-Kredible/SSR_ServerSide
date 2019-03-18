@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.sinc.ssr.vo.SavingsVO;
 import com.sinc.ssr.vo.StepVO;
 
 @Repository("stepDao")
@@ -17,12 +18,14 @@ public class StepDao {
 	
 	public List<Object> getTotalSteps(StepVO stepVO) {
 		List<Object> week_steps = session.selectList("com.sinc.ssr.mybatis.step.retrvStep",stepVO);
-		/*
-		 * session.insert("com.sinc.ssr.mybatis.step.insertStep",stpVo);
-		 */
+		
 		String walk_date = session.selectOne("com.sinc.ssr.mybatis.step.firstStep", stepVO);
 		if(walk_date == null) {
-			session.insert("com.sinc.ssr.mybatis.step.insertStep",stepVO);
+			session.insert("com.sinc.ssr.mybatis.step.insertStep", stepVO);
+			/* 일자별 포인트 최초 행 추가*/
+			SavingsVO savingsVO = new SavingsVO();
+			savingsVO.setUser_id(stepVO.getUser_id());
+			session.insert("com.sinc.ssr.mybatis.savings.insertSavings", savingsVO); 
 		}else {
 			session.update("com.sinc.ssr.mybatis.step.updateStep", stepVO);
 		}

@@ -23,19 +23,15 @@ public class SavingsCtrl {
 	 * */
 	@RequestMapping(value="/goodsToSavings.do", method = RequestMethod.GET)
 	@ResponseBody
-//	public Object goodsToSavings(int numPoint) {
-		public Object goodsToSavings(String numPoint, String userno) {
+	public void goodsToSavings(String numPoint, String userid) {
 		System.out.println("Step Ctrl goodsToSavings");
 		
-		System.out.println("numPoint : " + numPoint);
-//		System.out.println(numPoint);
+		System.out.println("numPoint : "+numPoint+"userid : "+userid);
 		
-//		SavingsVO savingsVO = new SavingsVO();
-//		savingsVO.setUser_id(3);
-//		savingsVO.setSa_am(4);
-//		savingsService.changingSavings(savingsVO);
-		
-		return null;
+		SavingsVO savingsVO = new SavingsVO();
+		savingsVO.setUser_id(3);
+		savingsVO.setSa_am(Integer.parseInt(numPoint));
+		savingsService.updateSavings(savingsVO);
 	}
 	
 }
