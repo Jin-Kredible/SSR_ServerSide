@@ -4,17 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
-import org.apache.taglibs.standard.extra.spath.Step;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 import com.sinc.ssr.service.StepServcie;
+import com.sinc.ssr.vo.MallsVO;
 import com.sinc.ssr.vo.StepVO;
 
 @Controller
@@ -76,5 +72,24 @@ public class StepCtrl {
 		System.out.println(goods);
 		
 		return goods;
+	}
+	
+	/*
+	 * 안드로이드에서 매장방문 기록받아서 VISITS DB에 저장
+	 * stepMapper의 visit(매장방문 걸음수, 비콘 찍은 시각) DB에 저장
+	 * */
+	@RequestMapping(value="/visit.do")
+	@ResponseBody
+	public void visit(MallsVO mallsVO) {
+		System.out.println("Step Ctrl visit");
+		
+//		MallsVO mallsVO = new MallsVO();
+//		mallsVO.setUser_id(4);
+//		mallsVO.setMall_id(1038);
+//		mallsVO.setVi_start("2019-03-18 11:20:31");
+//		mallsVO.setVi_end("2019-03-18 12:20:31");
+//		System.out.println(mallsVO);
+		stepService.visit(mallsVO);
+		
 	}
 }

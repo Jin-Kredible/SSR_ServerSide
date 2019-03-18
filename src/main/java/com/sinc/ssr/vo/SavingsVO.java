@@ -42,11 +42,13 @@ public class SavingsVO {
 	public void setSa_dt(String sa_dt) {
 		this.sa_dt = sa_dt;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "SavingsVO [sa_id=" + sa_id + ", user_id=" + user_id + ", sa_am=" + sa_am + ", sa_dt=" + sa_dt + "]";
 	}
+	
+	
 	
 	
 }
