@@ -96,4 +96,23 @@ public class StepCtrl {
 		stepService.visit(mallsVO);
 		
 	}
+	
+	@RequestMapping("/beaconInfo.do") 
+	@ResponseBody
+	public ArrayList<Object> beaconInfo(MallsVO mallsVO) { 
+		System.out.println("Step Ctrl beaconInfo");
+		System.out.println(mallsVO.toString());
+		
+		List<Object> beacon = new ArrayList<Object>();
+		
+		mallsVO.setUser_id(7);
+		mallsVO.setMall_id(1144);
+		
+		beacon = stepService.getBeaconInfo(mallsVO);
+		System.out.println("inside contoller" + beacon.toString());
+		System.out.println(beacon.size());
+		
+		return (ArrayList)beacon; 
+	}
+	
 }

@@ -45,4 +45,9 @@ public class StepServcie {
 		System.out.println("Step Service visit");
 		stepDao.visit(obj);
 	}
+
+	public List<Object> getBeaconInfo(MallsVO mallsVO) {
+		List<Object> beacon = stepDao.getBeaconInfo(mallsVO);
+		return beacon;
+	}
 }
