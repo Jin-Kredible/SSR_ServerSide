@@ -55,7 +55,7 @@ public class ProductDao {
 			return 0;
 		
 		}else if (pushYN == "N" || pushYN=="n" || pushYN.equals("N")){
-			session.update("com.sinc.ssr.mybatis.product.updateStep", stepVO);
+			session.update("com.sinc.ssr.mybatis.product.updatePushYN", stepVO);
 			return 0;
 		}
 		return 1;
