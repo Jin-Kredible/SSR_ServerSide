@@ -7,6 +7,7 @@
 	todayStep : 오늘 걸은 걸음수
 	changingStep : 전환할 걸음수 조회(상품 수로 변환할 sql)
 	visit : 매방방문 데이터 삽입
+	selectBeaconInfo : 비콘정보 조회(모든 비콘정보)
 -->
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"

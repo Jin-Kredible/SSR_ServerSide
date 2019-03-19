@@ -21,18 +21,17 @@ public class SavingsCtrl {
 	 * */
 	@RequestMapping(value="/goodsToSavings.do")
 	@ResponseBody
-	public void goodsToSavings(String numPoint, String userid) {
+	public void goodsToSavings(String numPoint) {
 		System.out.println("Step Ctrl goodsToSavings");
 		
-		System.out.println("numPoint : "+numPoint+"userid : "+userid);
-		
 		SavingsVO savingsVO = new SavingsVO();
-
-		savingsVO.setUser_id(2);
-
-		savingsVO.setUser_id(4);
-
 		savingsVO.setSa_am(Integer.parseInt(numPoint));
+		
+		/* 테스트용 */
+//		savingsVO.setUser_id(2);
+
+		System.out.println("numPoint : "+numPoint+"userid : "+savingsVO.getUser_id());
+		
 		savingsService.updateSavings(savingsVO);
 	}
 	
@@ -45,12 +44,13 @@ public class SavingsCtrl {
 	public int totalSavings(SavingsVO savingsVO) {
 		System.out.println("Step Ctrl totalSavings");
 		
+		/* 테스트용 */
 //		SavingsVO savingsVO = new SavingsVO();
 //		savingsVO .setUser_id(2);
+		
 		int totalSavings = (int) savingsService.totalSavings(savingsVO);
-
 		System.out.println("totalSavings : "+totalSavings);
+		
 		return totalSavings;
 	}
-	
 }
