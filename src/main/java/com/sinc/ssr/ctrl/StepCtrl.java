@@ -38,6 +38,8 @@ public class StepCtrl {
 		stepVO.setUser_id(1);
 
 		
+		
+		
 		weekStep = stepService.getSteps(stepVO);
 		System.out.println("inside contoller" + weekStep.toString());
 		System.out.println(weekStep.size());
