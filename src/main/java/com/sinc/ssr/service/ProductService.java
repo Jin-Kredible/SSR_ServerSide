@@ -56,7 +56,7 @@ public class ProductService {
 		
 		
 		ArrayList<Object> productList = productDao.getProductsByUser(productVo, randomTrend);
-		
+		productList.add(productVo);
 		
 		return productList;
 	}	

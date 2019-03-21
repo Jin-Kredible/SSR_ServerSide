@@ -28,7 +28,7 @@ public class SavingsCtrl {
 		savingsVO.setSa_am(Integer.parseInt(numPoint));
 		
 		/* 테스트용 */
-//		savingsVO.setUser_id(2);
+		savingsVO.setUser_id(1);
 
 		System.out.println("numPoint : "+numPoint+"userid : "+savingsVO.getUser_id());
 		
@@ -46,8 +46,9 @@ public class SavingsCtrl {
 		
 		/* 테스트용 */
 //		SavingsVO savingsVO = new SavingsVO();
-//		savingsVO .setUser_id(2);
+		savingsVO .setUser_id(1);
 		
+	
 		int totalSavings = (int) savingsService.totalSavings(savingsVO);
 		System.out.println("totalSavings : "+totalSavings);
 		
