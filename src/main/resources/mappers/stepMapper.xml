@@ -67,5 +67,6 @@
 	<select id="selectBeaconInfo" parameterType="mallsVO" resultType="mallsVO">
 		SELECT	MALL_ID, UUID, MAJOR, MINOR
 		FROM 	BEACONS
+		WHERE	MALL_ID = #{mall_id}
 	</select>
 </mapper>

@@ -122,7 +122,7 @@ public class StepCtrl {
 		List<Object> beacon = new ArrayList<Object>();
 		
 		beacon = stepService.getBeaconInfo(mallsVO);
-		
+		System.out.println("비콘값 : " + beacon);
 		return (ArrayList)beacon; 
 	}
 	
