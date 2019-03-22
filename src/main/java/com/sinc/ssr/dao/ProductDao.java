@@ -38,6 +38,7 @@ public class ProductDao {
 		        break;
 		}
 		
+		System.out.println(productList);
 	
 
 		return productList;

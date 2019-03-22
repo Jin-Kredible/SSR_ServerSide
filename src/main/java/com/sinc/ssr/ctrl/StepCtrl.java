@@ -34,7 +34,7 @@ public class StepCtrl {
 
 		/* 테스트용*/
 //		StepVO stepVO = new StepVO(); 
-		stepVO.setWk_am(5000);
+		//stepVO.setWk_am(5000);
 		
 		
 		
@@ -56,7 +56,7 @@ public class StepCtrl {
 		System.out.println("Step Ctrl todayGoal");
 
 //		StepVO stepVO = new StepVO();
-		stepVO.setUser_id(1);
+		//stepVO.setUser_id(1);
 		
 		
 		double goal = stepService.todayGoal(stepVO);
@@ -86,6 +86,24 @@ public class StepCtrl {
 		return goods;
 	}
 	
+	@RequestMapping(value="/visitmall.do")
+	@ResponseBody
+	public int visitmall(String input1, String input2) {
+		System.out.println("Step Ctrl visit");
+		
+		/* 테스트용*/
+//		MallsVO mallsVO = new MallsVO();
+//		mallsVO.setUser_id(4);
+//		mallsVO.setMall_id(1038);
+//		mallsVO.setVi_start("2019-03-18 11:20:31");
+//		mallsVO.setVi_end("2019-03-18 12:20:31");
+//		System.out.println(mallsVO);
+		
+		return 1;
+		
+	}
+	
+	
 	/*
 	 * 안드로이드에서 매장방문 기록받아서 VISITS DB에 저장
 	 * stepMapper의 visit(매장방문 걸음수, 비콘 찍은 시각) DB에 저장
@@ -106,6 +124,9 @@ public class StepCtrl {
 		
 	}
 	
+	
+	
+	
 	/*
 	 * 안드로이드에서 비콘찍으면 비콘정보 전달
 	 * stepMapper의 selectBeaconInfo(매장ID, UUID, MAJOR, MINOR) 전달
@@ -122,5 +143,9 @@ public class StepCtrl {
 		
 		return (ArrayList)beacon; 
 	}
+	
+	
+	
+	
 	
 }
