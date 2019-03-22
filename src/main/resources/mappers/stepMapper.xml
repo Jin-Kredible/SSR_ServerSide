@@ -25,7 +25,7 @@
     
     <insert id="insertStep" parameterType="stepVO">
         INSERT 	INTO WALKS 
-        VALUES 	(#{user_id}, SYSDATE, #{wk_am}, DEFAULT)
+        VALUES 	(#{user_id}, SYSDATE, #{wk_am}, DEFAULT, DEFAULT)
     </insert>
     
     <update id="updateStep" parameterType="stepVO">

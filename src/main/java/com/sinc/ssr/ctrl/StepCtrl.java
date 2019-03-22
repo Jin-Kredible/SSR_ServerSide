@@ -30,13 +30,11 @@ public class StepCtrl {
 		System.out.println("Step Ctrl execute");
 		
 		List<Object> weekStep = new ArrayList<Object>();
-		
+		System.out.println("get wkam : " + stepVO.getWk_am() + "user_id : " + stepVO.getUser_id());
 
 		/* 테스트용*/
 //		StepVO stepVO = new StepVO(); 
-//		stepVO.setWk_am(Integer.parseInt(steps));
-		stepVO.setUser_id(1);
-
+		stepVO.setWk_am(5000);
 		
 		
 		
@@ -56,11 +54,10 @@ public class StepCtrl {
 	@ResponseBody
 	public double todayGoal(StepVO stepVO) {
 		System.out.println("Step Ctrl todayGoal");
-		
 
 //		StepVO stepVO = new StepVO();
 		stepVO.setUser_id(1);
-
+		
 		
 		double goal = stepService.todayGoal(stepVO);
 		System.out.println(goal);
@@ -75,7 +72,7 @@ public class StepCtrl {
 	 * */
 	@RequestMapping(value="/walkToGoods.do")
 	@ResponseBody
-	public int walkToGoods(StepVO stepVO) {
+	public Integer walkToGoods(StepVO stepVO) {
 		System.out.println("Step Ctrl walkToGoods");
 	
 		/* 테스트용*/
