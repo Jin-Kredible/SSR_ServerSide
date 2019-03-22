@@ -30,7 +30,7 @@ public class SavingsCtrl {
 		/* 테스트용 */
 		savingsVO.setUser_id(1);
 
-		System.out.println("numPoint : "+numPoint+"userid : "+savingsVO.getUser_id());
+		System.out.println("numPoint:"+numPoint+"userid:"+savingsVO.getUser_id());
 		
 		savingsService.updateSavings(savingsVO);
 	}
