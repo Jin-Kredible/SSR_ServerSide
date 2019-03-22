@@ -25,7 +25,7 @@
     
     <insert id="insertStep" parameterType="stepVO">
         INSERT 	INTO WALKS 
-        VALUES 	(#{user_id}, SYSDATE, #{wk_am}, DEFAULT)
+        VALUES 	(#{user_id}, SYSDATE, #{wk_am}, DEFAULT, DEFAULT)
     </insert>
     
     <update id="updateStep" parameterType="stepVO">
@@ -67,5 +67,6 @@
 	<select id="selectBeaconInfo" parameterType="mallsVO" resultType="mallsVO">
 		SELECT	MALL_ID, UUID, MAJOR, MINOR
 		FROM 	BEACONS
+		WHERE	MALL_ID = #{mall_id}
 	</select>
 </mapper>

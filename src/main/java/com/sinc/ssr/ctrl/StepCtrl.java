@@ -72,7 +72,7 @@ public class StepCtrl {
 	 * */
 	@RequestMapping(value="/walkToGoods.do")
 	@ResponseBody
-	public int walkToGoods(StepVO stepVO) {
+	public Integer walkToGoods(StepVO stepVO) {
 		System.out.println("Step Ctrl walkToGoods");
 	
 		/* 테스트용*/
@@ -140,7 +140,7 @@ public class StepCtrl {
 		List<Object> beacon = new ArrayList<Object>();
 		
 		beacon = stepService.getBeaconInfo(mallsVO);
-		
+		System.out.println("비콘값 : " + beacon);
 		return (ArrayList)beacon; 
 	}
 	

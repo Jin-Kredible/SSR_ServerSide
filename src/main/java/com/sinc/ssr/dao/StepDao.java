@@ -29,7 +29,8 @@ public class StepDao {
 			/* 일자별 포인트 최초 행 추가*/
 			SavingsVO savingsVO = new SavingsVO();
 			savingsVO.setUser_id(stepVO.getUser_id());
-			session.insert("com.sinc.ssr.mybatis.savings.insertSavings", savingsVO); 
+			int i  = session.insert("com.sinc.ssr.mybatis.savings.insertSavings", savingsVO); 
+			System.out.println("insert point" + i);
 		}else {
 			session.update("com.sinc.ssr.mybatis.step.updateStep", stepVO);
 		}
