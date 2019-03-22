@@ -72,7 +72,7 @@ public class StepCtrl {
 	 * */
 	@RequestMapping(value="/walkToGoods.do")
 	@ResponseBody
-	public int walkToGoods(StepVO stepVO) {
+	public Integer walkToGoods(StepVO stepVO) {
 		System.out.println("Step Ctrl walkToGoods");
 	
 		/* 테스트용*/

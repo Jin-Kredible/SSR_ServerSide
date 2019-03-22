@@ -43,10 +43,17 @@
 						AND 	TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD'))
 		WHERE 	USER_ID = #{user_id}
 		AND 	TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
-    </update>       
-    
+    </update>  
+         
+    <select id="checkVisitNone" parameterType="mallsVO" resultType="int">
+		SELECT 	COUNT(VI_WK) 
+		FROM 	VISITS 
+		WHERE 	USER_ID = #{user_id} 
+		AND 	TO_CHAR(VI_START, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
+	</select>   
+	 
 	<select id="checkVisit" parameterType="mallsVO" resultType="int">
-		SELECT 	VI_WK 
+		SELECT 	VI_WK
 		FROM 	VISITS 
 		WHERE 	USER_ID = #{user_id} 
 		AND 	TO_CHAR(VI_START, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
