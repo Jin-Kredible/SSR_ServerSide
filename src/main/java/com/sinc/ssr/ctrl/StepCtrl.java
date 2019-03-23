@@ -34,7 +34,7 @@ public class StepCtrl {
 
 		/* 테스트용*/
 //		StepVO stepVO = new StepVO(); 
-		stepVO.setWk_am(5000);
+		stepVO.setWk_am(stepVO.getWk_am());
 		
 		
 		

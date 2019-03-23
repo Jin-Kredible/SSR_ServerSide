@@ -52,7 +52,7 @@ public class ProductService {
 		
 		/* productVo.setTime(currentTime); */
 		//Testing 구문
-		productVo.setTime(5);
+		productVo.setTime(currentTime);
 		
 		
 		ArrayList<Object> productList = productDao.getProductsByUser(productVo, randomTrend);
