@@ -52,10 +52,18 @@ public class ProductService {
 		
 		/* productVo.setTime(currentTime); */
 		//Testing 구문
-		productVo.setTime(5);
+		productVo.setTime(currentTime);
 		
 		
 		ArrayList<Object> productList = productDao.getProductsByUser(productVo, randomTrend);
+	
+		for(int i=0; i<productList.size(); i++) {
+			if(((ProductVO)productList.get(i)).getItem_weight() == null) {
+				((ProductVO)productList.get(i)).setItem_weight(" ");
+			}
+		}
+		
+		
 		productList.add(productVo);
 		
 		return productList;
