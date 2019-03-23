@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.sinc.ssr.dao.ProductDao;
 import com.sinc.ssr.vo.ProductVO;
+import com.sinc.ssr.vo.StepVO;
 
 @Service("productService")
 public class ProductService {
@@ -65,6 +66,10 @@ public class ProductService {
 		int check = productDao.checkPushNotice();
 		System.out.println("PushYN" + check);
 		return check;
+	}
+	
+	public void updatePushNotice(StepVO stepVO) {
+		productDao.updatePushNotice(stepVO);
 	}
 	
 }

@@ -50,15 +50,20 @@ public class ProductDao {
 		stepVO.setUser_id(1);
 		
 		String pushYN = session.selectOne("com.sinc.ssr.mybatis.product.checkPushYN", stepVO);
-		
+		System.out.println("pushYN: " + pushYN.toString());
 		if(pushYN == null || pushYN.isEmpty() || pushYN.equals("")) {
 			session.insert("com.sinc.ssr.mybatis.product.insertPushYN", stepVO);
 			return 0;
 		
 		}else if (pushYN == "N" || pushYN=="n" || pushYN.equals("N")){
-			session.update("com.sinc.ssr.mybatis.product.updatePushYN", stepVO);
-			return 0;
+			return 1;
 		}
-		return 1;
+		return 2;
+	}
+	
+	public void updatePushNotice(StepVO stepVO) {
+		
+			session.update("com.sinc.ssr.mybatis.product.updatePushYN", stepVO);
+
 	}
 }

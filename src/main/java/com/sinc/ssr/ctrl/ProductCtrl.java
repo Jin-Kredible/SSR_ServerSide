@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sinc.ssr.service.ProductService;
 import com.sinc.ssr.vo.ProductVO;
+import com.sinc.ssr.vo.StepVO;
 
 
 @Controller
@@ -39,5 +40,14 @@ public class ProductCtrl {
 		System.out.println(check);
 		
 		return check;
+	}
+	
+	
+	@RequestMapping("/updatePush.do") 
+	@ResponseBody
+	public void updatePushNotice(StepVO stepVO) { 
+		
+		 productService.updatePushNotice(stepVO);
+
 	}
 }

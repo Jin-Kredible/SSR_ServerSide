@@ -101,7 +101,7 @@
     </select>
     <insert id="insertPushYN" parameterType="stepVO">
         INSERT INTO WALKS 
-        VALUES (#{user_id}, SYSDATE, DEFAULT, DEFAULT, 'Y')
+        VALUES (#{user_id}, SYSDATE, DEFAULT, DEFAULT, 'N')
     </insert>
     
     <update id="updatePushYN" parameterType="stepVO">
