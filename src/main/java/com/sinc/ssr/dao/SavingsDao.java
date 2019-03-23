@@ -24,6 +24,7 @@ public class SavingsDao {
 			session.update("com.sinc.ssr.mybatis.savings.updateSavings", obj); //매장걸음 + 기본포인트 적립
 		}else {
 			System.out.println("inside else");
+			session.update("com.sinc.ssr.mybatis.savings.changedSavings", obj); //전환포인트(전환걸음, WK_SA) 수정
 			session.update("com.sinc.ssr.mybatis.savings.updateSavings", obj); //기본포인트 적립
 		}
 	}
