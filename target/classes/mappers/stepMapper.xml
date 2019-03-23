@@ -43,6 +43,8 @@
         AND 	TRUNC(SYSDATE) IN TRUNC(WK_DT)
     </select>
     
+    
+    
 	<select id="todayStep" parameterType="stepVO" resultType="int">
     	SELECT 	WK_AM
 		FROM 	WALKS
@@ -67,5 +69,6 @@
 	<select id="selectBeaconInfo" parameterType="mallsVO" resultType="mallsVO">
 		SELECT	MALL_ID, UUID, MAJOR, MINOR
 		FROM 	BEACONS
+		WHERE	MALL_ID = #{mall_id}
 	</select>
 </mapper>

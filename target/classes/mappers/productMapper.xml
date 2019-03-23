@@ -108,4 +108,5 @@
     	update WALKS SET PUSH_YN = 'Y' WHERE USER_ID = #{user_id} AND TRUNC(WK_DT) = TRUNC(SYSDATE)
     </update>
     
+    
 </mapper>
