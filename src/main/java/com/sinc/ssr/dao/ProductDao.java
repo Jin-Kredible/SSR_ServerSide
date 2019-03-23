@@ -25,7 +25,7 @@ public class ProductDao {
 		System.out.println(randomTrend + "in dao");
 		
 		//Testing 용으로 셋팅
-		randomTrend = 2;
+		//randomTrend = 1;
 		
 		switch(randomTrend) {
 		case 0: productList = (ArrayList<Object>) session.selectList("com.sinc.ssr.mybatis.product.getTrendA",productVo);

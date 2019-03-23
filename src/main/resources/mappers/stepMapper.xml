@@ -43,6 +43,8 @@
         AND 	TRUNC(SYSDATE) IN TRUNC(WK_DT)
     </select>
     
+    
+    
 	<select id="todayStep" parameterType="stepVO" resultType="int">
     	SELECT 	WK_AM
 		FROM 	WALKS

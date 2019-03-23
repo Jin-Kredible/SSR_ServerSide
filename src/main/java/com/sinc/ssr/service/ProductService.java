@@ -57,6 +57,14 @@ public class ProductService {
 		
 		
 		ArrayList<Object> productList = productDao.getProductsByUser(productVo, randomTrend);
+	
+		for(int i=0; i<productList.size(); i++) {
+			if(((ProductVO)productList.get(i)).getItem_weight() == null) {
+				((ProductVO)productList.get(i)).setItem_weight(" ");
+			}
+		}
+		
+		
 		productList.add(productVo);
 		
 		return productList;

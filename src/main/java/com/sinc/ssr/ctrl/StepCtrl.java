@@ -55,11 +55,11 @@ public class StepCtrl {
 	@ResponseBody
 	public double todayGoal(StepVO stepVO) {
 		System.out.println("Step Ctrl todayGoal");
-
+		
 //		StepVO stepVO = new StepVO();
 		//stepVO.setUser_id(1);
 		
-		
+		System.out.println("stepvo : " + stepVO.toString());
 		double goal = stepService.todayGoal(stepVO);
 		System.out.println(goal);
 		
