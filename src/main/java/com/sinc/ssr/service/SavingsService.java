@@ -22,5 +22,10 @@ public class SavingsService {
 		System.out.println("Savings Service totalSavings");
 		return savingsDao.totalSavings(obj);
 	}
+	
+	public void changeMoney(Object obj) {
+		System.out.println("Savings Service changeMoney");
+		savingsDao.changeMoney(obj);
+	}
 }
 	
