@@ -14,40 +14,38 @@ import com.sinc.ssr.service.ProductService;
 import com.sinc.ssr.vo.ProductVO;
 import com.sinc.ssr.vo.StepVO;
 
-
 @Controller
 public class ProductCtrl {
-	
-	@Resource(name="productService")
+
+	@Resource(name = "productService")
 	private ProductService productService;
-	
-	@RequestMapping("/product.do") 
+
+	@RequestMapping("/product.do")
 	@ResponseBody
-	public ArrayList<Object> getProducts(String dummy1, String dummy2) { 
-		
-		System.out.println("long : " + dummy1 + "lati : "  );
-		
-		ArrayList<Object> productList =  productService.getRecomProducts();
+	public ArrayList<Object> getProducts(String dummy1, String dummy2) {
+
+		System.out.println("long : " + dummy1 + "lati : ");
+
+		ArrayList<Object> productList = productService.getRecomProducts();
 		System.out.println(productList);
 		return productList;
 	}
-	
-	@RequestMapping("/checkPush.do") 
+
+	@RequestMapping("/checkPush.do")
 	@ResponseBody
-	public int checkPushNotice(String dummy1, String dummy2) { 
-		
+	public int checkPushNotice(String dummy1, String dummy2) {
+
 		int check = productService.checkPushNotice();
 		System.out.println(check);
-		
+
 		return check;
 	}
-	
-	
-	@RequestMapping("/updatePush.do") 
+
+	@RequestMapping("/updatePush.do")
 	@ResponseBody
-	public void updatePushNotice(StepVO stepVO) { 
-		
-		 productService.updatePushNotice(stepVO);
+	public void updatePushNotice(StepVO stepVO) {
+
+		productService.updatePushNotice(stepVO);
 
 	}
 }
