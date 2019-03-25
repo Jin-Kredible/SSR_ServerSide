@@ -6,6 +6,7 @@
 	selectTotalSavings : 총포인트 조회
 	changedSavings : 포인트로 전환한 걸음수 (WALKS - WK_SA 수정)
 	checkVisit : 매장방문시, 걸은 걸음 조회(VISIT - VI_WK 조회)
+	changingMoney : 포인트를 쓱머니로 전환(해당 유저의 모든 SA_AM 0으로 수정)
 -->
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
@@ -58,4 +59,11 @@
 		WHERE 	USER_ID = #{user_id} 
 		AND 	TO_CHAR(VI_START, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
 	</select>    
+	
+	<update id="changingMoney" parameterType="savingsVO">
+		UPDATE 	SAVINGS
+		SET 	SA_AM = 0
+		WHERE 	USER_ID = #{user_id}
+	</update>
+	
 </mapper>
