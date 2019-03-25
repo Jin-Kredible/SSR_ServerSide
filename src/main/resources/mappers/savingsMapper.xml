@@ -53,7 +53,7 @@
 		AND 	TO_CHAR(VI_START, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
 	</select>   
 	 
-	<select id="checkVisit" parameterType="mallsVO" resultType="int">
+	<select id="checkVisit" parameterType="savingsVO" resultType="int">
 		SELECT 	VI_WK
 		FROM 	VISITS 
 		WHERE 	USER_ID = #{user_id} 

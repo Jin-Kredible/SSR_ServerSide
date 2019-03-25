@@ -46,7 +46,7 @@ public class SavingsCtrl {
 		
 		/* 테스트용 */
 //		SavingsVO savingsVO = new SavingsVO();
-		savingsVO .setUser_id(2);
+		//savingsVO .setUser_id(1);
 		
 	
 		int totalSavings = (int) savingsService.totalSavings(savingsVO);
