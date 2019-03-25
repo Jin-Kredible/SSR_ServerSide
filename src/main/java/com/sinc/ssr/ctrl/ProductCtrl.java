@@ -23,11 +23,11 @@ public class ProductCtrl {
 	
 	@RequestMapping("/product.do") 
 	@ResponseBody
-	public ArrayList<Object> getProducts(String dummy1, String dummy2) { 
+	public ArrayList<Object> getProducts(String age, String gender) { 
 		
-		System.out.println("long : " + dummy1 + "lati : "  );
+		System.out.println("age : " + age + "gender : " + gender);
 		
-		ArrayList<Object> productList =  productService.getRecomProducts();
+		ArrayList<Object> productList =  productService.getRecomProducts(age,gender);
 		System.out.println(productList);
 		return productList;
 	}

@@ -23,7 +23,7 @@ public class ProductService {
 	private ProductDao productDao;
 	
 	
-	public ArrayList<Object> getRecomProducts() {
+	public ArrayList<Object> getRecomProducts(String age, String gender) {
 		
 		Random rand = new Random();
 		/*
@@ -48,8 +48,8 @@ public class ProductService {
 		System.out.println("randomTrend" + randomTrend);
 		
 		ProductVO productVo = new ProductVO();
-		productVo.setAge(20);
-		productVo.setGender(1);
+		productVo.setAge(Integer.parseInt(age));
+		productVo.setGender(Integer.parseInt(gender));
 		
 		/* productVo.setTime(currentTime); */
 		//Testing 구문
