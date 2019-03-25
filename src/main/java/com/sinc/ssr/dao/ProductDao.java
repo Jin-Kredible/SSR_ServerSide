@@ -44,10 +44,10 @@ public class ProductDao {
 		return productList;
 	}
 	
-	public int checkPushNotice() {
+	public int checkPushNotice(String user_id) {
 		
 		StepVO stepVO = new StepVO();
-		stepVO.setUser_id(1);
+		stepVO.setUser_id(Integer.parseInt(user_id));
 		
 		String pushYN = session.selectOne("com.sinc.ssr.mybatis.product.checkPushYN", stepVO);
 		System.out.println("pushYN: " + pushYN.toString());

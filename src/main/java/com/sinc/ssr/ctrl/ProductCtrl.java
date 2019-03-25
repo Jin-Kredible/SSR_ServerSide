@@ -22,30 +22,34 @@ public class ProductCtrl {
 
 	@RequestMapping("/product.do")
 	@ResponseBody
-	public ArrayList<Object> getProducts(String dummy1, String dummy2) {
 
-		System.out.println("long : " + dummy1 + "lati : ");
-
-		ArrayList<Object> productList = productService.getRecomProducts();
+	public ArrayList<Object> getProducts(String age, String gender) { 
+		
+		System.out.println("age : " + age + "gender : " + gender);
+		
+		ArrayList<Object> productList =  productService.getRecomProducts(age,gender);
 		System.out.println(productList);
 		return productList;
 	}
 
 	@RequestMapping("/checkPush.do")
 	@ResponseBody
-	public int checkPushNotice(String dummy1, String dummy2) {
 
-		int check = productService.checkPushNotice();
+	public int checkPushNotice(String user_id, String dummy2) { 
+		System.out.println("inside checkpushctrl :" + user_id);
+		int check = productService.checkPushNotice(user_id);
 		System.out.println(check);
 
 		return check;
 	}
 
-	@RequestMapping("/updatePush.do")
+
+	@RequestMapping("/updatePush.do") 
 	@ResponseBody
 	public void updatePushNotice(StepVO stepVO) {
 
 		productService.updatePushNotice(stepVO);
 
 	}
+
 }

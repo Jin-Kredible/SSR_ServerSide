@@ -32,6 +32,7 @@ public class StepDao {
 			int i  = session.insert("com.sinc.ssr.mybatis.savings.insertSavings", savingsVO); 
 			System.out.println("insert point" + i);
 		}else {
+			System.out.println("inside update state" + stepVO.getWk_am());
 			session.update("com.sinc.ssr.mybatis.step.updateStep", stepVO);
 		}
 		System.out.println("UserINFO" + week_steps);
@@ -41,6 +42,7 @@ public class StepDao {
 	public Object todayStep(Object obj) {
 		System.out.println("Step Dao todayGoal");
 		System.out.println("todayStep dao: " + obj);
+		
 		/*
 		  ProductVO productVo2 = new ProductVO(); 
 		  for(int i =1; i < 93; i++) {
