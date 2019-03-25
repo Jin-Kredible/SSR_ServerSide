@@ -69,8 +69,8 @@ public class ProductService {
 		return productList;
 	}	
 	
-	public int checkPushNotice() {
-		int check = productDao.checkPushNotice();
+	public int checkPushNotice(String user_id) {
+		int check = productDao.checkPushNotice(user_id);
 		System.out.println("PushYN" + check);
 		return check;
 	}

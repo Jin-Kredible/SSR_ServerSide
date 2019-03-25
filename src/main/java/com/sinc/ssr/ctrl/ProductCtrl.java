@@ -33,11 +33,13 @@ public class ProductCtrl {
 	
 	@RequestMapping("/checkPush.do") 
 	@ResponseBody
-	public int checkPushNotice(String dummy1, String dummy2) { 
-		
-		int check = productService.checkPushNotice();
+	public int checkPushNotice(String user_id, String dummy2) { 
+		System.out.println("inside checkpushctrl :" + user_id);
+		int check = productService.checkPushNotice(user_id);
 		System.out.println(check);
 		
 		return check;
 	}
+	
+	
 }

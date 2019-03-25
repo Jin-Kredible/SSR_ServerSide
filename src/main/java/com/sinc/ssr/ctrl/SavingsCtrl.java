@@ -46,34 +46,12 @@ public class SavingsCtrl {
 		
 		/* 테스트용 */
 //		SavingsVO savingsVO = new SavingsVO();
-<<<<<<< HEAD
 		//savingsVO .setUser_id(1);
-=======
-		savingsVO .setUser_id(2);
->>>>>>> branch 'master' of https://github.com/jinwkim90/SSR_ServerSide.git
 		
 	
 		int totalSavings = (int) savingsService.totalSavings(savingsVO);
 		System.out.println("totalSavings : "+totalSavings);
 		
 		return totalSavings;
-	}
-	
-	/*
-	 * 쓱머니 전환
-	 * 유저의 포인트테이블의 SA_AM을 모두 0
-	 * savingsMapper의 changeMoney로 수정
-	 * */
-	@RequestMapping(value="/changeMoney.do")
-	@ResponseBody
-	public void changingMoney(SavingsVO savingsVO) {
-		System.out.println("Step Ctrl changingMoney");
-		
-		/* 테스트용 */
-//		SavingsVO savingsVO = new SavingsVO();
-		savingsVO .setUser_id(2);
-		savingsService.changeMoney(savingsVO);
-		System.out.println("전환되었습니다");
-		
 	}
 }
