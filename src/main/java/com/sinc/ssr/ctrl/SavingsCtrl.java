@@ -44,9 +44,6 @@ public class SavingsCtrl {
 	public int totalSavings(SavingsVO savingsVO) {
 		System.out.println("Step Ctrl totalSavings");
 		
-		/* 테스트용 */
-//		SavingsVO savingsVO = new SavingsVO();
-		//savingsVO .setUser_id(1);
 		
 	
 		int totalSavings = (int) savingsService.totalSavings(savingsVO);

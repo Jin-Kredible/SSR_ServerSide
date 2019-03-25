@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.sinc.ssr.vo.MallsVO;
 import com.sinc.ssr.vo.SavingsVO;
 
 @Repository("savingsDao")

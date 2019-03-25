@@ -36,7 +36,7 @@ public class StepCtrl {
 //		StepVO stepVO = new StepVO(); 
 		//stepVO.setWk_am(stepVO.getWk_am());
 		//stepVO.setWk_am(60000);
-		
+
 		
 		
 		weekStep = stepService.getSteps(stepVO);
@@ -79,6 +79,7 @@ public class StepCtrl {
 		/* 테스트용*/
 //		StepVO stepVO = new StepVO();
 		//stepVO.setUser_id(1);
+
 
 
 		int goods = stepService.changingStep(stepVO);
