@@ -46,7 +46,7 @@
 		AND 	TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
     </update>  
          
-    <select id="checkVisitNone" parameterType="mallsVO" resultType="int">
+    <select id="checkVisitNone" parameterType="savingsVO" resultType="int">
 		SELECT 	COUNT(VI_WK) 
 		FROM 	VISITS 
 		WHERE 	USER_ID = #{user_id} 

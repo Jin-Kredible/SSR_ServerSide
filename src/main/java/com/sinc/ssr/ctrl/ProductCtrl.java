@@ -28,7 +28,7 @@ public class ProductCtrl {
 		System.out.println("long : " + dummy1 + "lati : "  );
 		
 		ArrayList<Object> productList =  productService.getRecomProducts();
-		
+		System.out.println(productList);
 		return productList;
 	}
 	

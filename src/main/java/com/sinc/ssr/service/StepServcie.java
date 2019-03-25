@@ -25,8 +25,8 @@ public class StepServcie {
 
 	public double todayGoal(Object obj) {
 		System.out.println("Step Service todayGoal");
-		//int todayStep = (Integer) stepDao.todayStep(obj);
-		//System.out.println("todayStep: " + todayStep);
+		int todayStep = (Integer) stepDao.todayStep(obj);
+		System.out.println("todayStep: " + todayStep);
 		double goal = Math.round((((StepVO)obj).getWk_am()/7000.0)*1000)/10.0;
 		if (goal >= 1) {
 			// 목표 완료하면 "완료" 보여주기

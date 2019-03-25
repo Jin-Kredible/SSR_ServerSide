@@ -18,8 +18,7 @@ public class SavingsDao {
 		System.out.println("Savings Dao updateSavings");
 		int visitWalk_None = session.selectOne("com.sinc.ssr.mybatis.savings.checkVisitNone", obj);// 매장방문 여부 조회
 		if (visitWalk_None != 0) {
-			System.out.println("obj value " + obj.toString());
-			int visitWalk = session.selectOne("com.sinc.ssr.mybatis.savings.checkVisit",(SavingsVO)obj); //매장방문시, 걸은 걸음 조회
+			int visitWalk = session.selectOne("com.sinc.ssr.mybatis.savings.checkVisit",obj); //매장방문시, 걸은 걸음 조회
 			session.update("com.sinc.ssr.mybatis.savings.changedSavings", obj); //전환포인트(전환걸음, WK_SA) 수정
 			int savings = visitWalk/100 + ((SavingsVO) obj).getSa_am() ;
 			((SavingsVO)obj).setSa_am(savings);

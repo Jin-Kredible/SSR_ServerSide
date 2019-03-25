@@ -42,13 +42,18 @@ public class StepDao {
 		System.out.println("Step Dao todayGoal");
 		System.out.println("todayStep dao: " + obj);
 		/*
-		  ProductVO productVo2 = new ProductVO(); for(int i =1; i < 93; i++) {
+		  ProductVO productVo2 = new ProductVO(); 
+		  for(int i =1; i < 93; i++) {
 		  
-		  String path = "/recomproducts/"; path = path + Integer.toString(i) +".jpg";
+		  String path = "/recomproducts/"; 
+		  path = path + Integer.toString(i) +".jpg";
 		  System.out.println("path" + path);
 		  
-		  productVo2.setItem_img_path(path); productVo2.setAge(i);
-		  session.update("com.sinc.ssr.mybatis.product.updateRows",productVo2); }
+		  productVo2.setItem_img_path(path); 
+		  productVo2.setAge(i);
+		
+		  session.update("com.sinc.ssr.mybatis.product.updateRows",productVo2); 
+		  }
 		 */
 		return session.selectOne("com.sinc.ssr.mybatis.step.todayStep", obj);
 	}
