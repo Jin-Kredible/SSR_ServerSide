@@ -37,8 +37,6 @@ public class StepCtrl {
 		//stepVO.setWk_am(stepVO.getWk_am());
 		//stepVO.setWk_am(60000);
 
-		
-		
 		weekStep = stepService.getSteps(stepVO);
 		System.out.println("inside contoller" + weekStep.toString());
 		System.out.println(weekStep.size());

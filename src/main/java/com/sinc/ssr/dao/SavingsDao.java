@@ -35,7 +35,7 @@ public class SavingsDao {
 		return session.selectOne("com.sinc.ssr.mybatis.savings.selectTotalSavings", obj);
 	}
 
-	public void changeMoney(Object obj) {
+	public Object changeMoney(Object obj) {
 		System.out.println("Savings Dao totalSavings");
 		int totalSavings = session.selectOne("com.sinc.ssr.mybatis.savings.selectTotalSavings", obj);
 		if (totalSavings != 0) { //총포인트가 0이 아닐때 쓱머니전환
@@ -43,5 +43,8 @@ public class SavingsDao {
 		}else {
 			System.out.println("전환할 포인트가 없습니다.");
 		}
+		
+		return session.selectOne("com.sinc.ssr.mybatis.savings.selectTotalSavings", obj);
+		
 	}
 }
