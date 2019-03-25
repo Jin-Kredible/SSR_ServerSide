@@ -34,8 +34,8 @@ public class StepCtrl {
 
 		/* 테스트용*/
 //		StepVO stepVO = new StepVO(); 
-		stepVO.setWk_am(stepVO.getWk_am());
-		//stepVO.setWk_am(5000);
+		//stepVO.setWk_am(stepVO.getWk_am());
+		//stepVO.setWk_am(60000);
 		
 		
 		
@@ -78,7 +78,7 @@ public class StepCtrl {
 	
 		/* 테스트용*/
 //		StepVO stepVO = new StepVO();
-		stepVO.setUser_id(1);
+		//stepVO.setUser_id(1);
 
 
 		int goods = stepService.changingStep(stepVO);
@@ -113,6 +113,7 @@ public class StepCtrl {
 	@ResponseBody
 	public void visit(MallsVO mallsVO) {
 		System.out.println("Step Ctrl visit");
+		System.out.println("malls_start time : " + mallsVO.getVi_end() + "malls_end time : " + mallsVO.getVi_start());
 		
 		/* 테스트용*/
 //		MallsVO mallsVO = new MallsVO();
