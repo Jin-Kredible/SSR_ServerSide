@@ -35,8 +35,12 @@ public class SavingsDao {
 		return session.selectOne("com.sinc.ssr.mybatis.savings.selectTotalSavings", obj);
 	}
 
-	public Object changeMoney(Object obj) {
+	public int changeMoney(Object obj) {
 		System.out.println("Savings Dao totalSavings");
+		
+		int totalConverted = session.selectOne("com.sinc.ssr.mybatis.savings.selectTotalSavings", obj);
+		System.out.println("total converted" + totalConverted + "user Id : " +obj.toString());;
+		
 		int totalSavings = session.selectOne("com.sinc.ssr.mybatis.savings.selectTotalSavings", obj);
 		if (totalSavings != 0) { //총포인트가 0이 아닐때 쓱머니전환
 			session.update("com.sinc.ssr.mybatis.savings.changingMoney", obj); //쓱머니로 전환(모든 포인트액 0으로 수정)
@@ -44,7 +48,7 @@ public class SavingsDao {
 			System.out.println("전환할 포인트가 없습니다.");
 		}
 		
-		return session.selectOne("com.sinc.ssr.mybatis.savings.selectTotalSavings", obj);
+		return totalConverted;
 		
 	}
 }

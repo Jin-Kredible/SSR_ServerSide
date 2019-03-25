@@ -72,16 +72,16 @@ public class SavingsCtrl {
 	@ResponseBody
 	public Integer changingMoney(SavingsVO savingsVO) {
 		System.out.println("Step Ctrl changingMoney");
+		
+		System.out.println(savingsVO.getUser_id());
 
 		/* 테스트용 */
 //		SavingsVO savingsVO = new SavingsVO();
-		savingsVO .setUser_id(2);
-		SavingsVO totalPoint = (SavingsVO)savingsService.changeMoney(savingsVO);
+		int totalPoint = savingsService.changeMoney(savingsVO);
 		System.out.println("전환되었습니다");
-		int totalP = totalPoint.getSa_am();
 		
 
-		return totalP;
+		return totalPoint;
 
 	}
 }

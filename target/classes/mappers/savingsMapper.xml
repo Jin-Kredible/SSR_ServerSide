@@ -29,7 +29,7 @@
 		AND 	TO_CHAR(SA_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
     </update>
        
-    <select id="selectTotalSavings" parameterType="savingsVO" resultType="int">
+    <select id="selectTotalSavings" parameterType="savingsVO" resultType="Integer">
     	SELECT 	SUM(SA_AM)
     	FROM 	SAVINGS
     	WHERE 	USER_ID = #{user_id}
@@ -46,14 +46,14 @@
 		AND 	TO_CHAR(WK_DT, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
     </update>  
          
-    <select id="checkVisitNone" parameterType="savingsVO" resultType="int">
+    <select id="checkVisitNone" parameterType="savingsVO" resultType="Integer">
 		SELECT 	COUNT(VI_WK) 
 		FROM 	VISITS 
 		WHERE 	USER_ID = #{user_id} 
 		AND 	TO_CHAR(VI_START, 'RRRR-MM-DD') = TO_CHAR(SYSDATE, 'RRRR-MM-DD')
 	</select>   
 	 
-	<select id="checkVisit" parameterType="savingsVO" resultType="int">
+	<select id="checkVisit" parameterType="savingsVO" resultType="Integer">
 		SELECT 	VI_WK
 		FROM 	VISITS 
 		WHERE 	USER_ID = #{user_id} 

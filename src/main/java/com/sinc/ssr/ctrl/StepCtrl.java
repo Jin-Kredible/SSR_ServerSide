@@ -78,8 +78,6 @@ public class StepCtrl {
 //		StepVO stepVO = new StepVO();
 		//stepVO.setUser_id(1);
 
-
-
 		int goods = stepService.changingStep(stepVO);
 		System.out.println(goods);
 		
